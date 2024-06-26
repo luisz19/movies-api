@@ -9,14 +9,14 @@ const MovieCard = ({movie}) => {
         <>
             <div className="card-movie">
                 <figure>
-                    <img src={imgMovie + movie.poster_path}/>
+                    <img src={imgMovie + movie.poster_path} alt={movie.title}/>
                 </figure>
                 <h3>{movie.title}</h3>
-                <p>
+                <p className='classification'>
                     <FaStar />
-                    {movie.vote_average}
+                    <span>{movie.vote_average}</span>
                 </p>
-                <p>Detalhes</p>
+                <button className='btn-movie'>Detalhes</button>
             </div>
 
             

@@ -3,8 +3,10 @@
     align-items: center;
     background-color: #0000005c;
     gap: 15px;
-    padding: 20px;
-    border-bottom: 2px solid white;
+    padding: 20px 100px 20px;
+    -webkit-box-shadow: 0px 4px 71px -5px rgba(252,231,111,0.21);
+    -moz-box-shadow: 0px 4px 71px -5px rgba(252,231,111,0.21);
+    box-shadow: 0px 4px 71px -5px rgba(252,231,111,0.21);
 }
 
 .header figure img{
@@ -16,4 +18,28 @@
 .header h2 {
     font-size: 2rem;
     text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.search {
+    width: 240px;
+    height: 30px;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+   
+   background: none;
+    border-radius: 6px;
+
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10%;
+    background-color: #0000005c;
+    padding: 8px 10px;
+    border-radius: 6px;
 }

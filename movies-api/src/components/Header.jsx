@@ -1,4 +1,5 @@
 import '../styles/Header.css'
+import Search from './Search';
 
 const Header = () => {
     return (
@@ -8,6 +9,9 @@ const Header = () => {
             </figure>
 
             <h2>Absolute Cinema</h2>
+
+            <Search />
+           
 
         </header>
     )

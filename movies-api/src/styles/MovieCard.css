@@ -5,12 +5,20 @@
     margin: 30px 200px;
     
 }
+
+.container h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin: 20px 0px 18px ;
+    padding: 0px 11px 2px;
+    border-left: 5px solid rgb(227, 147, 0);
+}
 .card-movie {
     display: flex;
     flex-direction: column;
     background-color: #0000005c;
     padding: 18px;
-    width: 250px;
+    width: 265px;
     border-radius: 8px;
     /* max-height: 350px; */
     
@@ -27,13 +35,18 @@
 }
 
 .card-movie img {
-    width: 220px;
+    width:100%;
     border-radius: 8px;
 }
 
 .card-movie h3 {
     padding: 10px 0px;
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow */
     text-overflow: ellipsis;
+    font-weight: 500;
+    font-size: 1.45rem;
+    white-space: none;
 
 }
 
@@ -48,4 +61,27 @@
 .movie-title {
     width: 100px;
     /* height: 400px; */
+}
+
+.btn-movie {
+    color: white;
+    background-color: rgb(227, 147, 0);
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-movie:hover {
+    background-color: rgb(189, 123, 0);
+}
+
+.classification {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
