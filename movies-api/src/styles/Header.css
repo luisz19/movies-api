@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #0000005c;
+    gap: 15px;
+    padding: 20px;
+    border-bottom: 2px solid white;
+}
+
+.header figure img{
+    width: 100px;
+}
+
+
+
+.header h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
