@@ -30,6 +30,7 @@ function Home ( ) {
         try {
             const response = await axios.get(`${movieURL}top_rated?${apiKey}`);
             setTopMovies(response.data.results)
+            console.log(response.data)
         } catch (error) {
             console.error(error)
         }
