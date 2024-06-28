@@ -10,6 +10,7 @@ const MovieCard = ({movie}) => {
 
     const toggleDiv = () => {
         setClose(!close);
+        setIdMovie(false)
       };
 
     const getId = () => {
@@ -22,9 +23,9 @@ const MovieCard = ({movie}) => {
         <>
             <div className="card-movie">
                 <figure>
-                    <img src={imgMovie + movie.poster_path} alt={movie.title}/>
+                    <img src={imgMovie + movie.poster_path} alt={movie.title  || movie.name}/>
                 </figure>
-                <h3>{movie.title}</h3>
+                <h3>{movie.title  || movie.name}</h3>
                 <p className='classification'>
                     <FaStar />
                     <span>{movie.vote_average}</span>
@@ -33,7 +34,7 @@ const MovieCard = ({movie}) => {
                 <button className='btn-movie' onClick={getId}>Detalhes</button>
 
                 <p>
-                    {id && <MovieInfo id={id} movie={movie} toggleDiv={toggleDiv}/>}
+                    {id && <MovieInfo id={id} movie={movie} close={toggleDiv} />}
                 </p>
                 
                 

@@ -6,6 +6,27 @@
     
 }
 
+.group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.btns button {
+   margin: 10px 10px 0px;
+    height: 35px;
+    width: 65px;
+    
+   cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+   background-color: #171717;
+    border-radius: 3px;
+
+}
+
 .container h2 {
     font-size: 2.5rem;
     font-weight: 400;

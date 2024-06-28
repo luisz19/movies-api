@@ -6,31 +6,35 @@ import axios from 'axios'
 import '../styles/MovieCard.css'
 
 
-function Home ( ) {
+const Home  = ( ) =>  {
     const movieURL = import.meta.env.VITE_API
     const apiKey = import.meta.env.VITE_API_KEY
+    const apiTv = import.meta.env.VITE_API_TV
     console.log(movieURL, apiKey)
     const [topMovies, setTopMovies] = useState([]);
-
-//     const getTopMovies = async (url) => {
-//         const res = await fetch (url);
-//         const data = await res.json();
-
-//         setTopMovies(data.results)
-//         console.log(data)
-//     }
-    
-//    useEffect(() => {
-//         const topRatedUrl = `${movieURL}top_rated?${apiKey}`;
-//         getTopMovies(topRatedUrl);
-        
-//    }, [])
+    const [topSeries, setTopSeries] = useState([]);
+    const [showTV, setShowTV] = useState(false)
+    const [showMovie, setShowMovie] = useState(false)
 
     const getTopMovies = async () => {
         try {
             const response = await axios.get(`${movieURL}top_rated?${apiKey}`);
             setTopMovies(response.data.results)
             console.log(response.data)
+            setShowMovie(true)
+            setShowTV(false)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    const getTopSeries = async () => {
+        try {
+            const response = await axios.get(`${apiTv}top_rated?${apiKey}`);
+            setTopSeries(response.data.results)
+            console.log(response.data)
+            setShowTV(true)
+            setShowMovie(false)
         } catch (error) {
             console.error(error)
         }
@@ -47,11 +51,25 @@ function Home ( ) {
         <Header />
         {/* <MovieCard /> */}
         <div className="container">
-            <h2>
-                Melhores filmes
-            </h2>
+            <div className="group">
+                <h2>
+                    Melhores filmes
+                </h2>
+                <div className="btns">
+                    <button onClick={getTopMovies}>Filme</button>
+                    <button onClick={getTopSeries}>Série</button>
+                </div>
+            </div>
             <div className="movies-container">
-                {topMovies && topMovies.map((movie) => 
+                {showMovie && topMovies.map((movie) => 
+                    <p className="movie-title"> <MovieCard movie={movie} /> </p>
+                )}
+
+
+            </div>
+
+            <div className="movies-container">
+                {showTV && topSeries.map((movie) => 
                     <p className="movie-title"> <MovieCard movie={movie} /> </p>
                 )}
 
