@@ -19,13 +19,18 @@
     width: 65px;
     
    cursor: pointer;
-    border: none;
+    border: 2px solid rgb(227, 147, 0);
     outline: none;
     font-size: 1.2rem;
    background-color: #171717;
     border-radius: 3px;
+    transition: all 0.3s ease-in-out;
 
 }
+
+.btns button:hover {
+   background-color: rgba(227, 148, 0, 0.634);
+ }
 
 .container h2 {
     font-size: 2.5rem;

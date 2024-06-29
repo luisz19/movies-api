@@ -21,9 +21,9 @@
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: #171515;
-    max-width:35%;
+    max-width:40%;
     min-height: 40%;
-    max-height: 65%;
+    max-height: 75%;
     display: flex;
     gap: 4px;
     flex-direction: column;

@@ -1,8 +1,8 @@
 import '../styles/Header.css'
-import Search from './Search';
+import { FaSearch } from "react-icons/fa"
 
 
-const Header = () => {
+const Header = ( {handleSubmit, setSearch, search}) => {
     return (
         <header className="header">
             <figure>
@@ -11,7 +11,17 @@ const Header = () => {
 
             <h2>Absolute Cinema</h2>
 
-            <Search />
+            <div className="search-bar">
+             <FaSearch />
+             <form onSubmit={handleSubmit}>
+                
+                <input className='search' type="text" placeholder="Digite o nome do filme" onChange={(e) => setSearch(e.target.value)} value={search}/>
+
+            
+             </form>
+
+            
+             </div>
            
 
         </header>

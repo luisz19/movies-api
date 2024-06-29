@@ -10,19 +10,45 @@ const Home  = ( ) =>  {
     const movieURL = import.meta.env.VITE_API
     const apiKey = import.meta.env.VITE_API_KEY
     const apiTv = import.meta.env.VITE_API_TV
+    const searchAPI = import.meta.env.VITE_SEARCH
+
     console.log(movieURL, apiKey)
+
     const [topMovies, setTopMovies] = useState([]);
     const [topSeries, setTopSeries] = useState([]);
+    const [nome, setNome] = useState('');
     const [showTV, setShowTV] = useState(false)
     const [showMovie, setShowMovie] = useState(false)
+    const [search, setSearch] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setSearch(search)
+        //falta isssoooooo
+        console.log(search)
+        getSearch(search)
+        setNome('Resultados para ' + search)
+    }
+
+    const getSearch = async (search)  => {
+        try {
+            const response = await axios.get(`${searchAPI}?${apiKey}&query=${search}`);
+            setTopMovies(response.data.results)
+            
+           
+            
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
     const getTopMovies = async () => {
         try {
             const response = await axios.get(`${movieURL}top_rated?${apiKey}`);
             setTopMovies(response.data.results)
-            console.log(response.data)
             setShowMovie(true)
             setShowTV(false)
+            setNome('Top 20 Filmes');
         } catch (error) {
             console.error(error)
         }
@@ -32,9 +58,9 @@ const Home  = ( ) =>  {
         try {
             const response = await axios.get(`${apiTv}top_rated?${apiKey}`);
             setTopSeries(response.data.results)
-            console.log(response.data)
             setShowTV(true)
             setShowMovie(false)
+            setNome('Top 20 Séries');
         } catch (error) {
             console.error(error)
         }
@@ -48,12 +74,12 @@ const Home  = ( ) =>  {
     return (
         <>
 
-        <Header />
+        <Header handleSubmit={handleSubmit} setSearch={setSearch} search={search}/>
         {/* <MovieCard /> */}
         <div className="container">
             <div className="group">
                 <h2>
-                    Melhores filmes
+                   {nome}
                 </h2>
                 <div className="btns">
                     <button onClick={getTopMovies}>Filme</button>
